@@ -1,16 +1,12 @@
 import { create } from 'zustand';
-
-interface Chord {
-  name: string;
-  notes: string[];
-}
+import { ParsedMetadata } from '@/lib/musicxmlParser';
 
 interface ChordState {
-  chords: Chord[];
-  setChords: (chords: Chord[]) => void;
+  metadata: ParsedMetadata | null;
+  setMetadata: (data: ParsedMetadata) => void;
 }
 
 export const useChordStore = create<ChordState>((set) => ({
-  chords: [],
-  setChords: (chords) => set({ chords }),
+  metadata: null,
+  setMetadata: (data) => set({ metadata: data }),
 }));

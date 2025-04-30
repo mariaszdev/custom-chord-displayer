@@ -11,12 +11,12 @@ export default function MusicXMLUpload() {
     if (!file) return;
 
     const text = await file.text();
-    const parsedChords = parseMusicXML(text);
-    setChords(parsedChords);
+    const parsedMeasures = parseMusicXML(text);
+    setChords(parsedMeasures);
   };
 
   return (
-    <div className="p-4">
+    <div className="px-4 py-1">
       <input type="file" accept=".xml,.musicxml" onChange={handleFileUpload} />
     </div>
   );
